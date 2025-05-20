@@ -38,5 +38,10 @@ namespace CosmicCuration.Utilities
         {
             throw new System.NotImplementedException("Child does not have CreateItem() Implementation!!!");
         }
+        public void ReturnItem(T returnedItem)
+        {
+            PooledItem<T> pooledItem = pooledItems.Find(i => i.Item.Equals(returnedItem));
+            pooledItem.isUsed = false;
+        }
     }
 }
